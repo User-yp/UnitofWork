@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using UnitofWork.Entity;
+using UnitofWork.WebApi.Data.Entities;
 
-namespace UnitofWork.DbContexts;
+namespace UnitofWork.WebApi.Data;
 
 public class TestContext : DbContext
 {

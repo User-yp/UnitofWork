@@ -1,4 +1,4 @@
-namespace UnitofWork;
+namespace UnitofWork.WebApi.Data;
 
 public class ConnectionOption
 {

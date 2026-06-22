@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace UnitofWork.Entity;
+namespace UnitofWork.WebApi.Data.Entities;
 
 public class JobConfig
 {
@@ -46,45 +46,31 @@ internal class JobConfigConfig : IEntityTypeConfiguration<JobConfig>
         builder.HasIndex(p => p.JobKeyName);
 
         builder.Property(j => j.Group)
-            .HasColumnName("GROUP")
-            .IsRequired()
-            .HasMaxLength(50);
+            .HasColumnName("GROUP").IsRequired().HasMaxLength(50);
 
         builder.Property(j => j.JobKeyName)
-            .HasColumnName("JOB_KEYNAME")
-            .IsRequired()
-            .HasMaxLength(50);
+            .HasColumnName("JOB_KEYNAME").IsRequired().HasMaxLength(50);
 
         builder.Property(j => j.JobDescription)
-            .HasColumnName("JOB_DESC")
-            .HasMaxLength(100);
+            .HasColumnName("JOB_DESC").HasMaxLength(100);
 
         builder.Property(j => j.TriggerKeyName)
-            .HasColumnName("TRIGGER_KEYNAME")
-            .IsRequired()
-            .HasMaxLength(50);
+            .HasColumnName("TRIGGER_KEYNAME").IsRequired().HasMaxLength(50);
 
         builder.Property(j => j.TriggerDescription)
-            .HasColumnName("TRIGGER_DESC")
-            .HasMaxLength(100);
+            .HasColumnName("TRIGGER_DESC").HasMaxLength(100);
 
         builder.Property(j => j.Cron)
-            .HasColumnName("CRON")
-            .IsRequired()
-            .HasMaxLength(50);
+            .HasColumnName("CRON").IsRequired().HasMaxLength(50);
 
         builder.Property(j => j.CronDescription)
-            .HasColumnName("CRON_DESC")
-            .HasMaxLength(100);
+            .HasColumnName("CRON_DESC").HasMaxLength(100);
 
         builder.Property(j => j.IsEnable)
             .HasColumnName("IS_ENABLE")
             .IsRequired()
             .HasMaxLength(1)
             .HasDefaultValue(false)
-            // 数据库使用 "Y"/"N"，应用层使用 bool
-            .HasConversion(
-                v => v ? "Y" : "N",
-                v => v == "Y");
+            .HasConversion(v => v ? "Y" : "N", v => v == "Y");
     }
 }
