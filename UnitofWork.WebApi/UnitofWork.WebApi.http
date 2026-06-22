@@ -1,0 +1,6 @@
+@UnitofWork.WebApi_HostAddress = http://localhost:5054
+
+GET {{UnitofWork.WebApi_HostAddress}}/Test/Get
+Accept: application/json
+
+###
